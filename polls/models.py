@@ -36,3 +36,7 @@ class Notifications(models.Model):
 class Faculty(models.Model):
     faculty_suggestion = models.CharField(max_length = 200)
     student_refid = models.ForeignKey(PersonInfo, on_delete=models.CASCADE)
+
+class TPO(models.Model):
+    drive_name = models.CharField(max_length = 20)
+    TPO_notification = models.CharField(max_length = 200)

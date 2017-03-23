@@ -6,6 +6,9 @@ from polls.models import AcedamicInfo
 from polls.forms import AcedemicInfoForm
 from polls.models import AdditionalInfo
 from polls.forms import AdditionalInfoForm
+from polls.forms import TPOForm
+from polls.models import TPO
+
 
 # Create your views here.
 def index(request):
@@ -45,3 +48,14 @@ def additional(request):
 
 def success(request):
     return HttpResponse("Successfully Updated")
+
+def tpobasic(request):
+    if request.method == "POST":
+        form = TPOForm(request.POST)
+        if form.is_valid():
+            TPO = form.save(commit = False)
+            TPO.save()
+            return redirect('success')
+    else:
+        form = TPOForm()
+    return render(request,'polls/tpobasic.html',{'form':form})
