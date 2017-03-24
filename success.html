@@ -1,0 +1,13 @@
+<h1>done</h1>
+
+{% for student in student_details %}
+<p> ID : {{student.student_id}}</p>
+{% endfor %}
+
+{% for studenta in acadamic_details %}
+<p>{{studenta.student_id}} : {{studenta.aggregate}}</p>
+{% endfor %}
+
+{% for studentb in additional_details %}
+<p>{{studentb.student_id}} : {{studentb.coacademicactivities}}</p>
+{% endfor %}
