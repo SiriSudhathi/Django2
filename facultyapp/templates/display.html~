@@ -1,0 +1,4 @@
+<h1> Students Remarks </h1>
+{% for faculty in Student%}
+<p> {{faculty.Student_ID}} : {{faculty.Comments}} </p>
+{% endfor %}

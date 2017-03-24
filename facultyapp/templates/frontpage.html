@@ -1,0 +1,18 @@
+
+<body background = "http://orig00.deviantart.net/27cc/f/2012/015/3/3/light_vines_by_angiemyst-d4mi0a7.png">
+
+<h1>Post A Remark</h1>
+<form method="post">
+  
+   
+{% csrf_token %}
+   
+ {{ form.as_p }}
+    
+<div class="form-actions">
+    
+ <button type="submit">Update</button>
+  
+  </div>
+</form>
+</body>

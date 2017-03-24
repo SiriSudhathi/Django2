@@ -1,0 +1,6 @@
+<body background = "http://orig00.deviantart.net/27cc/f/2012/015/3/3/light_vines_by_angiemyst-d4mi0a7.png">
+
+<h1> Students Remarks </h1>
+{% for faculty in Student%}
+<p> {{faculty.Student_ID}} : {{faculty.Comments}} </p>
+{% endfor %}

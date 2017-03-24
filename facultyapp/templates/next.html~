@@ -1,0 +1,25 @@
+<head>
+<style>
+body {
+    background-color: lightblue;
+    background-image: url("http://ginva.com/wp-content/uploads/2012/02/simple-wallpaper-20.jpg");
+    background-color: #cccccc
+}
+</style>
+</head>
+
+<h1>Post A Remark</h1>
+<form method="post">
+  
+   
+{% csrf_token %}
+   
+ {{ form.as_p }}
+    
+<div class="form-actions">
+    
+</body>
+ <button type="submit">Update</button>
+  
+  </div>
+</form>
