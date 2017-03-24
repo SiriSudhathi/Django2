@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+         <title>{% block title %}Django Simple Login{% endblock %}</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+      <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          {% if request.user.is_authenticated %}
+          <a class="navbar-brand" href="/accounts/profile/">Home Page</a>
+            {% else %}
+            <a class="navbar-brand" href="/login/">Home Page</a>
+            {% endif %}
+        </div>
+        <center>
+          <div class="pull-right login-section">
+
+          {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <a href="{% url 'logout' %}"><button class="btn btn-default">logout</button></a>
+          {% else %}
+            <a href="{% url 'login' %}"><button class="btn btn-default">login</button></a>
+          {% endif %}
+          </div>
+        </center>
+
+    </div>
+</div>
+<div class="container">
+<div class="row">
+    <div class="col-md-8">
+      {% block content %}
+      {% endblock %}
+    </div>
+</div>
+</div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Send Message to {{student.name}}{% endblock %}
+
+{% block content %}
+<h2>Send Message to {{student.name}}</h2>
+<form method = "POST" class = "post-form">
+  {% csrf_token %}
+  <input name="message"></input>
+  <button type = "submit" class = "btn btn-default">Save</button>
+
+  <h2>Previous Suggestions({{suggestions|length}}):</h2>
+  {% for suggestion in suggestions %}
+  {{suggestion.notification}}<br>
+  {% endfor %}
+{% endblock %}
