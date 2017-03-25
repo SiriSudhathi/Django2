@@ -13,6 +13,7 @@ urlpatterns = [
 
     url(r'^faculty/dashboard/$', faculty_dashboard, name='faculty_dashboard'),
     url(r'^tpo/dashboard/$', tpo_dashboard, name='tpo_dashboard'),
+    url(r'^student/profileview/(?P<pk>\w{0,})/$$', student_profile_view, name='student_profile_view'),
 
     # url(r'^$', views.index, name='index'),
     # url(r'^base$', views.base, name='base'),

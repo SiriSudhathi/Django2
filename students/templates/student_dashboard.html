@@ -2,7 +2,13 @@
 
 {% block title %}Dashboard{% endblock %}
 
+
+
 {% block content %}
+<form method = "POST" class = "post-form">{% csrf_token %}
+<ul>
+  <li>{{student.first_name}} - <a href="/student/profileview/{{student.pk}}">view profile </a></li>
+</ul>
 <h2>Notifications({{notifications|length}}):</h2>
 <ul>
 {% for notification in notifications %}

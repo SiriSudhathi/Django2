@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Student Profile{% endblock %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Vaue</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>first name</td>
+          <td>{{student.first_name}}</td>
+        </tr>
+        <tr>
+          <td>last name</td>
+          <td>{{student.last_name}}</td>
+        </tr>
+        <tr>
+          <td>email</td>
+          <td>{{student.email}}</td>
+        </tr>
+        <tr>
+          <td>ph.no</td>
+          <td>{{student.mobile}}</td>
+        </tr>
+        <tr>
+          <td>Roll No</td>
+          <td>{{student.student.rollNo}}</td>
+        </tr>
+        <tr>
+          <td>Department</td>
+          <td>{{student.student.department}}</td>
+        </tr>
+        <tr>
+          <td>Activities/td>
+          <td>{{student.student.activities}}</td>
+        </tr>
+        <tr>
+          <td>Achievements</td>
+          <td>{{student.student.achievements}}</td>
+        </tr>
+        <tr>
+          <td>Hobbies</td>
+          <td>{{student.student.hobbies}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  <br>
+  <h2>Educational Profile</h2>
+    {% for education in education_details %}
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>yearOfPassing</th>
+        <th>aggregate</th>
+        <th>institution</th>
+        <th>board</th>
+        <th>degree</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{education.yearOfPassing}}</td>
+        <td>{{education.aggregate}}</td>
+        <td>{{education.institution}}</td>
+        <td>{{education.board}}</td>
+        <td>{{education.degree}}</td>
+      </tr>
+    </tbody>
+  </table>
+    {% endfor %}
+{% else %}
+<h1>Please Login<h1>
+{% endif %}
+{% endblock %}

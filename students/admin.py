@@ -5,12 +5,6 @@ from .models import User, StudentProfile, AcademicInfo, Suggestions, JobNotifica
 from django.contrib.auth.admin import UserAdmin
 
 
-class MyUserAdmin(UserAdmin):
-
-    fieldsets = UserAdmin.fieldsets + (
-            (None, {'fields': ('mobile', 'address', 'userRole')}),
-    )
-
 class StudentProfileAdmin(admin.ModelAdmin):
     def render_change_form(self, request, context, *args, **kwargs):
          context['adminform'].form.fields['user'].queryset = User.objects.filter(userRole="student")
@@ -21,6 +15,16 @@ class AcademicInfoAdmin(admin.ModelAdmin):
     def render_change_form(self, request, context, *args, **kwargs):
          context['adminform'].form.fields['student'].queryset = StudentProfile.objects.all()
          return super(AcademicInfoAdmin, self).render_change_form(request, context, args, kwargs)
+
+
+
+class MyUserAdmin(UserAdmin):
+
+    fieldsets = UserAdmin.fieldsets + (
+            (None, {'fields': ('mobile', 'address', 'userRole')}),
+    )
+
+
 
 
 admin.site.register(User, MyUserAdmin)
